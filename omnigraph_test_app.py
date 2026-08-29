@@ -1,5 +1,5 @@
 
 import db
-def update_user():
-    db.advisory_lock('users')
-    db.execute('UPDATE users SET status = "active"')
+def update_settings():
+    db.transaction()
+    db.execute('UPDATE settings SET val = 1')
