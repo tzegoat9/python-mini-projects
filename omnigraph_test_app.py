@@ -1,5 +1,5 @@
 
 import db
 def update_user():
-    db.advisory_lock('users')
+    # Dev forgot the lock!
     db.execute('UPDATE users SET status = "active"')
