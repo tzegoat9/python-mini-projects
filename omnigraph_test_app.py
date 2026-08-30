@@ -1,4 +1,9 @@
 
 import db
-def update_isolated():
-    db.execute('UPDATE isolated_table SET val = 1')
+
+# OmniGraph end-to-end test PR, timestamp=1788090333
+def process_order():
+    db.execute("UPDATE orders SET status = 'shipped' WHERE id = 1")
+
+def update_inventory():
+    db.execute("UPDATE inventory SET qty = qty - 1 WHERE product_id = 1")
