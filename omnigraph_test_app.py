@@ -1,5 +1,4 @@
 
 import db
-def update_settings():
-    db.transaction()
-    db.execute('UPDATE settings SET val = 1')
+def update_isolated():
+    db.execute('UPDATE isolated_table SET val = 1')
