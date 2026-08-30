@@ -1,9 +1,13 @@
 
-import db
+# OmniGraph e2e test ts=1788090415
+class Order:
+    __tablename__ = "orders"
 
-# OmniGraph end-to-end test PR, timestamp=1788090333
-def process_order():
-    db.execute("UPDATE orders SET status = 'shipped' WHERE id = 1")
+class Inventory:
+    __tablename__ = "inventory"
 
-def update_inventory():
-    db.execute("UPDATE inventory SET qty = qty - 1 WHERE product_id = 1")
+def process_order(order_id):
+    Order.objects.filter(id=order_id).update(status="shipped")
+
+def update_inventory(product_id):
+    Inventory.objects.filter(product_id=product_id).update(qty=0)
