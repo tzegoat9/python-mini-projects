@@ -1,6 +1,7 @@
 
-# Python Service Writing to Global Users (ts=1788097805)
-import db
+# Python Service Writing to Global Users (ts=1788100154)
+class GlobalUser:
+    __tablename__ = 'global_users'
 
 def onboard_user(user_id):
-    db.execute("INSERT INTO global_users (id, status) VALUES (?, 'onboarded')", user_id)
+    GlobalUser.objects.filter(id=user_id).update(status='onboarded')
